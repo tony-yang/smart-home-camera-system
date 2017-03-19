@@ -8,3 +8,4 @@ http://man.cx/fswebcam(1)
 http://martin-denizet.com/timelapse-movie-with-raspberry-pi/
 https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi
 http://www.linuxcircle.com/2013/02/06/faster-video-streaming-on-raspberry-media-server-with-mjpg-streamer/
+http://dirisala.net/blog/2013/08/securing-mjpg-streamer/
