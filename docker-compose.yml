@@ -3,7 +3,7 @@ version: "2"
 services:
   camerasystem:
     build:
-      content: .
+      context: .
     ports:
       - "9000:9000"
     devices:
