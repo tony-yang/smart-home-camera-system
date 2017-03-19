@@ -11,8 +11,8 @@ WORKDIR /root
 
 ADD . /root/
 
-COPY /root/conf/ports.conf /etc/apache2/ports.conf
-COPY /root/conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY conf/ports.conf /etc/apache2/ports.conf
+COPY conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 RUN \
   a2enmod proxy && a2enmod proxy_http && a2enmod ssl && \
