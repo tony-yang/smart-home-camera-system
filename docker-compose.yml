@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  camerasystem:
+    build:
+      content: .
+    ports:
+      - "9000:9000"
+    devices:
+      - "/dev/video0:/dev/video0"
+    networks:
+      - homesecurity
+
+networks:
+  homesecurity:
