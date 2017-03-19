@@ -19,6 +19,6 @@ RUN \
   a2ensite default-ssl && \
   mkdir /root/ssl && \
   openssl req -newkey rsa:2048 -nodes -keyout /root/ssl/ystpublic.camera.key -x509 -days 365 -out /root/ssl/ystpublic.camera.crt -subj "/C=CA/ST=Ontario/L=Toronto/O=ystpublic/CN=ystpublic" && \
-  service apache2 restart
+  cd mjpg-streamer/mjpg-streamer && make USE_LIBV4L2=true clean install
 
 EXPOSE 9000
