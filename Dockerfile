@@ -2,10 +2,10 @@ FROM ubuntu
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y build-essential tcl openssh-client vim python3 python3-pip && \
+  apt-get install -y build-essential tcl openssh-client vim ruby ruby-dev ruby-bundler zlib1g-dev liblzma-dev nodejs mysql-server libmysqlclient-dev && \
   apt-get install -y apache2 libjpeg8-dev imagemagick libv4l-dev && \
-  pip3 install --upgrade pip setuptools && \
-  ln -s /usr/bin/python3 /usr/bin/python
+  gem install rails
+
 
 WORKDIR /root
 
