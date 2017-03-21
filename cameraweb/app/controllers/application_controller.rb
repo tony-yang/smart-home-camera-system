@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
     unless session[:user_id]
       flash[:notice] = 'Please log in'
       redirect_to(home_login_path)
+    end
   end
 end
