@@ -9,6 +9,7 @@ do
   then
     mjpg_streamer -i "/usr/local/lib/input_uvc.so -d /dev/video0 -y" -o "/usr/local/lib/output_http.so -p 9999 -w /usr/local/www" -b
     service apache2 start
+    service mysql start
   fi
   sleep 60s
 done
