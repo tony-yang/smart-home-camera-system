@@ -2,24 +2,45 @@
 
 A simple and inexpensive home camera security system. It uses existing commodity components to build an online image streaming application, which allows users to see live (motion) images of the monitored area. This system takes no more than a Linux (Ubuntu) system and a regular webcam.
 
-# User Guide
+
+## User Guide (Run under the Production environment)
+At the project root, run `make start`. This will start a docker container with all the required device mapped into the container. We assume the webcam is mount on `/dev/video0`.
+
+The container will build and start all the necessary dependency tools. Run the following steps before using the system:
+- Create a new MySQL root password
+- Create a MySQL database for the system
+```
+create database cameraweb_production;
+grant all privileges on cameraweb_production.* to 'cameraweb'@'localhost' identified by '<some password>';
+```
+- Add the password to the environment variable for MySQL `export CAMERAWEB_DATABASE_PASSWORD=<some password>`
+- Go to `cameraweb` and run `bundle install`
+- Run the db migration `rails db:migrate RAILS_ENV="production"`
+- Add an admin user to the database through the Rails console `rails c production` for the prod environment
+- Generate a new secret and add it to the environment variable `export SECRET_KEY_BASE=$(rails secret)`
+
+Start the server and profit! `puma -e production` and restart the apache server
+
+
+## Dev Guide
 At the project root, run `make start`. This will start a docker container with all the required device mapped into the container. We assume the webcam is mount on `/dev/video0`.
 
 The container will build and start all the necessary dependency tools. Add the following before using the system:
-- Create new MySQL root password
-- Create MySQL database for the system
+- Create a new MySQL root password
+- Create a MySQL database for the system
 ```
 create database cameraweb_development;
 grant all privileges on cameraweb_development.* to 'cameraweb'@'localhost' identified by '<some password>';
 ```
+- Add the password to the environment variable for MySQL `export CAMERAWEB_DATABASE_PASSWORD=<some password>`
 - Go to `cameraweb` and run `bundle install`
 - Run the db migration `rails db:migrate`
-- Add an admin user to the database through the Rails console
+- Add an admin user to the database through the Rails console `rails c` for the dev environment
 
-Start the server with a environment setup of the MySQL password and profit! `export CAMERAWEB_DATABASE_PASSWORD=<some password> && rails server -b 0.0.0.0 -d`
+Start the dev server and profit! `rails server -b 'ssl://127.0.0.1:3000?key=/root/ssl/ystpublic.camera.key&cert=/root/ssl/ystpublic.camera.crt'` and restart the apache server
 
 
-# Reference Links
+## Reference Links
 http://www.netinstructions.com/automating-picture-capture-using-webcams-on-linuxubuntu/
 http://man.cx/fswebcam(1)
 http://martin-denizet.com/timelapse-movie-with-raspberry-pi/

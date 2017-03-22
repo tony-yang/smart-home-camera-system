@@ -6,7 +6,7 @@ RUN \
 
 RUN \
   export DEBIAN_FRONTEND=noninteractive && \
-  apt-get install -y ruby ruby-dev ruby-bundler zlib1g-dev liblzma-dev nodejs mysql-server libmysqlclient-dev && \
+  apt-get install -y ruby ruby-dev ruby-bundler libssl-dev zlib1g-dev liblzma-dev nodejs mysql-server libmysqlclient-dev && \
   apt-get install -y apache2 libjpeg8-dev imagemagick libv4l-dev && \
   gem install rails
 
