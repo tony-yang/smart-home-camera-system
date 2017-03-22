@@ -15,6 +15,7 @@ grant all privileges on cameraweb_development.* to 'cameraweb'@'localhost' ident
 grant all privileges on cameraweb_test.* to 'cameraweb'@'localhost' identified by '<some password>';
 ```
 - Add the password to the environment variable for MySQL `export CAMERAWEB_DATABASE_PASSWORD=<some password>`
+- Add admin user to the database through the Rails console
 
 
 # Reference Links

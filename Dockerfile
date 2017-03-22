@@ -26,6 +26,7 @@ RUN \
   cd mjpg-streamer/mjpg-streamer && make USE_LIBV4L2=true clean install
 
 EXPOSE 9000
+EXPOSE 9999
 EXPOSE 3000
 
 CMD ["/root/camera-starter.sh"]

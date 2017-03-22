@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user, :except => [:login, :attempt_login, :logout]
 
   def index
-    @camera_streaming_url = 'http://localhost:9999/?action=stream'
+    @camera_streaming_url = 'http://192.168.0.53:9999/?action=stream'
     @username = session[:username]
   end
 
