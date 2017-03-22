@@ -27,6 +27,5 @@ RUN \
 
 EXPOSE 9000
 EXPOSE 9999
-EXPOSE 3000
 
 CMD ["/root/camera-starter.sh"]

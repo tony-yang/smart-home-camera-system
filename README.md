@@ -10,12 +10,13 @@ The container will build and start all the necessary dependency tools. Add the f
 - Create MySQL database for the system
 ```
 create database cameraweb_development;
-create database cameraweb_test;
 grant all privileges on cameraweb_development.* to 'cameraweb'@'localhost' identified by '<some password>';
-grant all privileges on cameraweb_test.* to 'cameraweb'@'localhost' identified by '<some password>';
 ```
-- Add the password to the environment variable for MySQL `export CAMERAWEB_DATABASE_PASSWORD=<some password>`
-- Add admin user to the database through the Rails console
+- Go to `cameraweb` and run `bundle install`
+- Run the db migration `rails db:migrate`
+- Add an admin user to the database through the Rails console
+
+Start the server with a environment setup of the MySQL password and profit! `export CAMERAWEB_DATABASE_PASSWORD=<some password> && rails server -b 0.0.0.0 -d`
 
 
 # Reference Links

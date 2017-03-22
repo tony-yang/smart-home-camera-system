@@ -6,7 +6,6 @@ services:
       context: .
     ports:
       - "9000:9000"
-      - "9001:3000"
       - "9999:9999"
     devices:
       - "/dev/video0:/dev/video0"
