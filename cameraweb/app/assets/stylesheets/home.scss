@@ -2,12 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.identity {
+  position: relative;
+  top: 10px;
+  left: 20px;
+  font-size: 130%;
+}
+
+.logout.btn {
+  float: right;
+  position: relative;
+  top: 5px;
+  right: 20px;
+}
+
+.logout.btn a {
+  color: #ccc;
+}
+
+.logout.btn a:focus, .logout.btn a:hover {
+  text-decoration: none;
+}
+
+#content {
+  position: relative;
+  top: 100px;
+}
+
 .form-signin .form-control {
   position: relative;
   height: auto;
   box-sizing: border-box;
   padding: 10px;
   font-size: 16px;
+}
+
+.form-signin input[name='username'] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type='submit'] {
+  position: relative;
+  top: 30px;
 }
 
 img {
