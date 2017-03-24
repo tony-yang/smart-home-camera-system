@@ -4,31 +4,34 @@
     <title>Cameraweb: <%= @page_title || 'Home' %></title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id='header'>
-      <h1>Smart Home Camera System</h1>
-      <% if !@username.blank? %>
-      <div class='control'>
-        <span class='identity'>Logged in as: <%= @username %></span>
-        <span class='logout'><%= link_to('Logout', home_logout_path) %></span>
+    <div class='container-fluid'>
+      <div id='header'>
+        <% if !@username.blank? %>
+        <div class='control'>
+          <span class='identity'>Logged in as: <%= @username %></span>
+          <span class='logout'><%= link_to('Logout', home_logout_path) %></span>
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <div id='main'>
-      <% if !flash[:notice].blank? %>
-      <div class='notice'>
-        <%= flash[:notice] %>
-      </div>
-      <% end %>
+      <div id='main'>
+        <% if !flash[:notice].blank? %>
+        <div class='notice'>
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
 
-      <div id='content'>
-      <%= yield %>
-      </div>
+        <div id='content'>
+        <%= yield %>
+        </div>
 
+      </div>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

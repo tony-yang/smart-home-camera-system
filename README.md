@@ -17,10 +17,9 @@ grant all privileges on cameraweb_production.* to 'cameraweb'@'localhost' identi
 - Go to `cameraweb` and run `bundle install`
 - Run the db migration `rails db:migrate RAILS_ENV="production"`
 - Add an admin user to the database through the Rails console `rails c production` for the prod environment
-- Generate a new secret and add it to the environment variable `export SECRET_KEY_BASE=$(rails secret)`
 - Add the path to the SSL private key and SSL certificate `export SSL_KEY_PATH=<path to private key>` and `export SSL_CERT_PATH=<path to SSL certificate>`
 
-Start the server and profit! `puma -e production` and restart the apache server
+Start the server with a new secret and profit! `export SECRET_KEY_BASE=$(rails secret) && puma -e production` and restart the apache server
 
 
 ## Dev Guide
