@@ -11,6 +11,7 @@ services:
       - "/dev/video0:/dev/video0"
     networks:
       - homesecurity
+    restart: always
 
 networks:
   homesecurity:
